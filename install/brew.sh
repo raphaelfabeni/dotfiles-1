@@ -6,6 +6,7 @@ brew upgrade
 # Install packages
 
 apps=(
+    dockutil
     ffmpeg
     gifsicle
     git

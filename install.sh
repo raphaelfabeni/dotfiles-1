@@ -2,9 +2,8 @@
 
 # Get current dir (so run this script from anywhere)
 
-export DOTFILES_DIR EXTRA_DIR
+export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-EXTRA_DIR="$HOME/.extra"
 
 # Update dotfiles itself first
 
@@ -23,7 +22,3 @@ if [ "$(uname)" == "Darwin" ]; then
         . "$DOTFILES_DIR/install/osx.sh"
     fi
 fi
-
-# Run tests
-
-bats test/*.bats

@@ -40,8 +40,7 @@ npm install -g tldr
 npm install -g underscore
 npm install -g vtop
 
-# Install extra stuff
+. "$DOTFILES_DIR/osx/defaults-chrome.sh"
+. "$DOTFILES_DIR/osx/defaults.sh"
+. "$DOTFILES_DIR/osx/dock.sh"
 
-if [ -d "$EXTRA_DIR" -a -f "$EXTRA_DIR/install/osx.sh" ]; then
-    . "$EXTRA_DIR/install/osx.sh"
-fi

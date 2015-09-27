@@ -9,10 +9,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "Blade"
-sudo scutil --set HostName "Blade"
-sudo scutil --set LocalHostName "Blade"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Blade"
+sudo scutil --set ComputerName "matrix"
+sudo scutil --set HostName "matrix"
+sudo scutil --set LocalHostName "matrix"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "matrix"
+
+# Use Dark theme
+defaults write ~/Library/Preferences/.GlobalPreferences AppleInterfaceStyle Dark
 
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
@@ -124,13 +127,13 @@ defaults write com.apple.BezelServices kDimTime -int 300
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
-defaults write NSGlobalDomain AppleLocale -string "en_US@currency=EUR"
+defaults write NSGlobalDomain AppleLanguages -array "en" "pt-br"
+defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Amsterdam" > /dev/null
+sudo systemsetup -settimezone "America/Sao_Paulo" > /dev/null
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -227,6 +230,15 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict General -bool true Ope
 
 # Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
+
+# Put Dock on the bottom side of the screen
+defaults write com.apple.Dock orientation -string bottom
+
+# Change minimize/maximize window effect of the list "genie, suck and scale"
+defaults write com.apple.dock mineffect -string "genie"
+
+# Set the icon size of Dock items to 32 pixels
+defaults write com.apple.dock tilesize -int 32
 
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
@@ -391,8 +403,8 @@ sudo mdutil -E / > /dev/null
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Use "Pro" theme (black background color)
-defaults write com.apple.terminal "Default Window Settings" -string "Pro"
-defaults write com.apple.terminal "Startup Window Settings" -string "Pro"
+# defaults write com.apple.terminal "Default Window Settings" -string "Pro"
+# defaults write com.apple.terminal "Startup Window Settings" -string "Pro"
 
 # Disable audible and visual bells
 defaults write com.apple.terminal "Bell" -bool false
@@ -442,6 +454,8 @@ sudo tmutil disablelocal
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
+
+killall Dock;killall SystemUIServer
 
 for app in "Address Book" "Calendar" "Contacts" "Dock" "Finder" "Mail" "Safari" "SystemUIServer" "iCal" "iTunes"; do
     killall "$app" > /dev/null 2>&1
