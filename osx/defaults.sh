@@ -139,7 +139,7 @@ sudo systemsetup -settimezone "America/Sao_Paulo" > /dev/null
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Use all F1, F2, etc. keys as standard function keys (requires restart)
-defaults write -g com.apple.keyboard.fnState -bool true
+defaults write -g com.apple.keyboard.fnState -bool false
 
 ###############################################################################
 # Screen                                                                      #

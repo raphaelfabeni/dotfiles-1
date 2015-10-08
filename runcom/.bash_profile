@@ -73,6 +73,10 @@ cp $DOTFILES_DIR/vim/vimrc ~/.vimrc
 # Source aditional functions
 source $DOTFILES_DIR/terminal/colors.sh
 
+terminal_set_foreground_color SuperGray
+terminal_set_background_color white
+terminal_set_font "Monaco" 14
+
 #################################################################
 # Netshoes
 #################################################################
