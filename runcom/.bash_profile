@@ -67,9 +67,11 @@ unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE
 
 export SHELL_BASH SHELL_ZSH OS DOTFILES_DIR
 
-
 # Vim
 cp $DOTFILES_DIR/vim/vimrc ~/.vimrc
+
+# Source aditional functions
+source $DOTFILES_DIR/terminal/colors.sh
 
 #################################################################
 # Netshoes

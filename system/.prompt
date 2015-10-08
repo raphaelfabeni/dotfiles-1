@@ -58,7 +58,7 @@ _bash_prompt_config() {
     local WHITE_BOLD="${ESC_OPEN}${BOLD}$(_setaf 7)${ESC_CLOSE}"
 
     # Expose the variables we need in prompt command
-    P_USER=${BRIGHT_GREEN}${USER_SYMBOL}
+    P_DIR=${BRIGHT_BLUE}
     P_HOST=${CYAN}${HOST_SYMBOL}
     P_WHITE=${WHITE}
     P_GREEN=${BRIGHT_GREEN}
@@ -94,17 +94,43 @@ bash_prompt_command() {
     # Parse Git branch name
     P_GIT=$(parse_git_branch)
 
+    # Parse Git status
+    P_GIT_STATUS=$(parse_git_status)
+
     # Exit code
     if [[ $EXIT_CODE != 0 ]]; then
         P_EXIT+="${P_RED}✘ "
     fi
 
-    PS1="${P_EXIT}${P_USER}${P_WHITE}@${P_HOST} ${P_YELLOW}${P_PWD}${P_GREEN}${P_GIT}${P_YELLOW} ❯ ${P_RESET}"
+    PS1="${P_EXIT}${P_DIR}${P_PWD}${P_WHITE}${P_GIT}${P_GIT_STATUS} ${P_RESET}"
 }
 
 parse_git_branch() {
     local OUT=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-    if [ "$OUT" != "" ]; then echo " $OUT"; fi
+    if [ "$OUT" != "" ]; then echo "[$OUT]"; fi
+}
+
+parse_git_status () {
+  local STATUS=`git status 2>&1`
+  if [[ "$STATUS" == *'Not a git repository'* ]]
+  then
+    echo ""
+  else
+    if [[ "$STATUS" != *'working directory clean'* ]]
+    then
+      # something to commit
+      echo -e ' *'
+    else
+      if [[ "$STATUS" == *'Your branch is ahead'* ]]
+      then
+        # something to push
+        echo -e ' ↑'
+      else
+        # nothing here :)
+        echo -e ''
+      fi
+    fi
+  fi
 }
 
 _bash_prompt_config
