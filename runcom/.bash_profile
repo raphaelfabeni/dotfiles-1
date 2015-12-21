@@ -76,15 +76,3 @@ source $DOTFILES_DIR/terminal/colors.sh
 terminal_set_foreground_color SuperGray
 terminal_set_background_color white
 terminal_set_font "Monaco" 14
-
-#################################################################
-# Netshoes
-#################################################################
-
-export CATALINA_HOME=/Users/$(whoami)/bin/apache-tomcat-6.0.43
-export JRE_HOME="/Library/Java/Home"
-export JAVA_HOME=$JRE_HOME
-
-# Services
-alias ns-up="cd $CATALINA_HOME/bin && . catalina.sh start && cd -"
-alias ns-down="cd $CATALINA_HOME/bin && . catalina.sh stop && cd -"
