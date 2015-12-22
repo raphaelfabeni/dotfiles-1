@@ -6,10 +6,12 @@ brew upgrade
 # Install packages
 
 apps=(
+    bash-completion
     dockutil
     ffmpeg
     gifsicle
     git
+    mackup
     node
     peco
     python
@@ -17,7 +19,6 @@ apps=(
     tree
     vim
     wget
-    mackup
 )
 
 brew install "${apps[@]}"

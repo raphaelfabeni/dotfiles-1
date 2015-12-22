@@ -59,6 +59,11 @@ if $SHELL_BASH; then
     done
 fi
 
+# git autocomplete
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
 # Clean up
 
 unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE
