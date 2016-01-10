@@ -39,6 +39,9 @@ npm install -g svgo
 npm install -g tldr
 npm install -g underscore
 npm install -g vtop
+npm install -g babel
+npm install -g webpack
+npm install -g webpack-dev-server
 
 . "$DOTFILES_DIR/osx/defaults-chrome.sh"
 . "$DOTFILES_DIR/osx/defaults.sh"
