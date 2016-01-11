@@ -1,9 +1,9 @@
 [user]
-    name = Igor APA
-    email = apa.igor@gmail.com
+    name = Raphael Fabeni
+    email = rapha.fabeni@gmail.com
 
 [github]
-    user = igorapa
+    user = raphaelfabeni
 
 [core]
     excludesfile = ~/.gitignore_global
