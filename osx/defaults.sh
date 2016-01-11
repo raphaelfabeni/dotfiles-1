@@ -9,10 +9,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "igorapa"
-sudo scutil --set HostName "igorapa"
-sudo scutil --set LocalHostName "igorapa"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "igorapa"
+sudo scutil --set ComputerName "raphaelfabeni"
+sudo scutil --set HostName "raphaelfabeni"
+sudo scutil --set LocalHostName "raphaelfabeni"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "raphaelfabeni"
 
 # Use Dark theme
 defaults write ~/Library/Preferences/.GlobalPreferences AppleInterfaceStyle Dark
