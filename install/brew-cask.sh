@@ -4,10 +4,10 @@ apps=(
     cloudup
     dropbox
     evernote
+    filezilla
     firefox
     google-drive
     google-chrome
-    mou
     opera
     screenflow
     skyfonts
@@ -17,8 +17,7 @@ apps=(
     spectacle
     spotify
     sublime-text3
-    transmit
-    utorrent
+    tweetdeck
     vagrant
     virtualbox
     vlc
