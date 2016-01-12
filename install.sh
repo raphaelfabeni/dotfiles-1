@@ -18,11 +18,11 @@ ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 ln -sfv "$DOTFILES_DIR/terminal/.colors.csv" ~
 
 # Install vundle
-. "$DOTFILES_DIR/install/vundle.sh"
+#. "$DOTFILES_DIR/install/vundle.sh"
 
-if [ "$(uname)" == "Darwin" ]; then
-    ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~
-    if [ -f "$DOTFILES_DIR/install/osx.sh" ]; then
-        . "$DOTFILES_DIR/install/osx.sh"
-    fi
-fi
+#if [ "$(uname)" == "Darwin" ]; then
+#    ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~
+#    if [ -f "$DOTFILES_DIR/install/osx.sh" ]; then
+#        . "$DOTFILES_DIR/install/osx.sh"
+#    fi
+#fi
